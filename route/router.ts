@@ -8,11 +8,11 @@ const memoryStore = new session.MemoryStore()
 export const keycloak = new Keycloak({ store: memoryStore }, kcConfig);
 export const router = Router();
 
-router.get('/admin-login', keycloakhendeler.admin)
+router.post('/admin-login', keycloakhendeler.admin)
 
-router.post('/users', keycloak.protect('admin'), keycloakhendeler.create_hendeler);
+router.post('/', keycloak.protect('admin'), keycloakhendeler.create_hendeler);
 
-router.get('/users', keycloak.protect('admin'), keycloakhendeler.read_hendeler)
+router.get('/', keycloak.protect('admin'), keycloakhendeler.read_hendeler)
 
 router.put('/user/:id', keycloak.protect('admin'), keycloakhendeler.update_hendeler)
 

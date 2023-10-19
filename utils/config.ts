@@ -3,13 +3,21 @@ export const kcConfig = {
     bearerOnly: true,
     serverUrl: 'http://localhost:8080',
     realm: 'myrealm',
-    realmPublicKey: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0jvdJYrTYlKNK8DKNx0KN0aMvccuFXoCbnFHSLk6Zzq5gTOia6uCGmpx5b/S0W1VIMrpTHa9Lw9OM7oIAs5VbrSqIfHLVTqVw12a5Xg+aE3GS1SKLdT3wxMUVszrdW3v2iVDS1oFGCwVIxhpF5O3XuLvUgEX7jd1pO+GDfQMN2vQAX8NFuqx/934/CxcWAmvYLhfXAB1HXsbTMsJ2dYz9SKRf4kHcisEM6qzkH7aNZ2IjsbB1380DtmfIlllKHWmCXpgWFwuzFg6VjNcmW1gu4ngx8k7uTDdtVjFdMUBpKGFATrriTmN5jKKKiyiMph1Q71jZnV68JzGhWQQ7HnpEQIDAQAB',
+    realmPublicKey: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAorMXDiYImo8u8gA8b/cv6DahGNKeW8fq9bsWy+L2H2kzAWjxBUFPAb/aj7WUoCrzHxAPSCAxpv2I+mNGpecIkUCiEyiq0Zp9m53A2gvW/irDZCf4OfBwHmlpIqTb48v2kIk4ARNmwOPWJ6vRp3AsiHPTMrnAlSI6lEvp9vquNkenQbduaKm0O2308TOmBXkTNURUp2QSy4bYRuyk+6077rJKYNb/iUj6I0PtoAupfC2sn4HXB1201mQqnI/ts1LGCxDOICO2I21jJY6kDemIbKbfI1ysz0BQ2/U4Ce0Od4c+/NpCRIN4aw1jiI0/mcGIVF78LM92ugJPPrxy3VMKFQIDAQAB',
     'confidential-port': 8080,
     'ssl-required': 'external',
     "auth-server-url": 'http://localhost:8080',
     resource: 'myclient'
 };
 
-export const Keycloak = {
 
-}
+// const api = {
+//     "realm": "myrealm",
+//     "auth-server-url": "http://localhost:8080/",
+//     "ssl-required": "external",
+//     "resource": "myclient",
+//     "public-client": true,   
+//     "verify-token-audience": true,
+//     "use-resource-role-mappings": true,
+//     "confidential-port": 0
+// }

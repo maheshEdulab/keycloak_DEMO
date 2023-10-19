@@ -1,11 +1,12 @@
 import axios from "axios"
+import { constants } from "buffer";
 
 var baseurl = "http://localhost:8080";
 
 class KeycloakController {
 
     admin_login = async (username: string, password: string) => {
-         
+         console.log(username,password)
         const response = await axios.post(`${baseurl}/realms/myrealm/protocol/openid-connect/token`,
             {
                 grant_type: 'password',
@@ -28,8 +29,8 @@ class KeycloakController {
         // console.log(user[1].credentials)
         const response = await axios.post(`${baseurl}/admin/realms/myrealm/users`, user, {
             headers: {
-                Authorization: token
-                , 'Content-Type': 'application/json',
+                Authorization: token,
+                 'Content-Type': 'application/json',
             }
         })
         console.log(response.status)
@@ -43,10 +44,12 @@ class KeycloakController {
             }
 
         })
+        console.log(response.data)
         return response.data;
     }
 
     update_User = async (id, body, token) => {
+        
         const response = await axios.put(`${baseurl}/admin/realms/myrealm/users/${id}`, body, {
             headers: {
                 Authorization: token,

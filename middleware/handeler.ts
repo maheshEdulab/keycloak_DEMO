@@ -7,11 +7,11 @@ class Keycloakhendler {
 
     admin = async (req: Request, res: Response) => {
         try {
-            console.log(req.body)
+
             const { username, password } = req.body as { username: string, password: string }
             console.log(username, password)
             const access_token = await keycloakController.admin_login(username, password);
-            console.log(access_token)
+
 
             res.json({ access_token });
         } catch (error) {
@@ -50,10 +50,11 @@ class Keycloakhendler {
 
     read_hendeler = async (req: Request, res: Response) => {
         try {
+            console.log(req.headers.authorization)
+            var respo = res.json(await keycloakController.read_User(req.headers['authorization']))
 
-            res.json(await keycloakController.read_User(req.headers['authorization']))
         } catch {
-            res.json({ Messege: "NO  token recived" })
+            res.json({ Messege: "NO token recived", respo })
         }
     }
 
@@ -88,9 +89,10 @@ class Keycloakhendler {
     user_xlsx = async (req: Request, res: Response) => {
         try {
 
-            const wb = xlsx.readFile('src/user.xlsx')
-            console.log(wb.SheetNames)
-            const ws = wb.Sheets['data']
+            const wb = xlsx.readFile('src/userdata.xlsx')
+            // console.log(wb.SheetNames)
+            // const ws = wb.Sheets['data']
+            const ws = wb.Sheets['Sheet1']
             const data: Ibody[] = xlsx.utils.sheet_to_json(ws)
             // console.log(data)
             await data.map(async (body) => {
@@ -107,7 +109,7 @@ class Keycloakhendler {
                 }
 
                 // return user
-               await keycloakController.create_User(user, req.headers['authorization'])
+                await keycloakController.create_User(user, req.headers['authorization'])
             })
             // const newarr=await Promise.all(promise)
             // console.log(newarr[1])
